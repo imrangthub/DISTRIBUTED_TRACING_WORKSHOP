@@ -1,10 +1,15 @@
 # DISTRIBUTED_TRACING_WORKSHOP
 
 
-ALTER USER 'root'@'localhost'   IDENTIFIED WITH mysql_native_password   BY 'root';
 
+#Setup MySQL Database
+======================================================================================
 
-java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=mysql --zipkin.storage.mysql.host=localhost --zipkin.storage.mysql.port=3306 --zipkin.storage.mysql.username=root --zipkin.storage.mysql.password=root --zipkin.storage.mysql.db=zipkin_service_mysql
+        ALTER USER 'root'@'localhost'   IDENTIFIED WITH mysql_native_password   BY 'root';
+
+#Run Jar with Env
+
+        java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=mysql --zipkin.storage.mysql.host=localhost --zipkin.storage.mysql.port=3306 --zipkin.storage.mysql.username=root --zipkin.storage.mysql.password=root --zipkin.storage.mysql.db=zipkin_service_mysql
 
 Zipkin Table:
 
