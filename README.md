@@ -89,6 +89,10 @@ Zipkin with MySQL Database
       utf8_general_ci;
 
 
+Zipkin with CassandraStorage
+==========================================================================================
+    java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=cassandra3
+
 
 http://localhost:9411/zipkin/
 
