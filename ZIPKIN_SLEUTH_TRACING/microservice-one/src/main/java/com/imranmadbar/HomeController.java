@@ -33,5 +33,16 @@ public class HomeController {
         return requestRes;
     }
 
+    @RequestMapping("/getMsg2")
+    public String getList2() {
+        LOG.info("Inside Microservice1getMsg");
+        System.out.println("Calling  Microservice Two..");
+        String requestRes = restTemplate.getForObject("http://microservice-two/getMsg",
+                String.class);
+        LOG.info("The response received by Microservice1getMsg: " + requestRes);
+        System.out.println("Microservice Two Res: "+requestRes);
+        return requestRes;
+    }
+
 
 }
