@@ -1,5 +1,5 @@
 
-#Zipkin with MySQL Database
+Zipkin with MySQL Database
 ==========================================================================================
 
         ALTER USER 'root'@'localhost'   IDENTIFIED WITH mysql_native_password   BY 'root';
