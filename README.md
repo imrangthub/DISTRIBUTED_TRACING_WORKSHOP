@@ -98,12 +98,13 @@ Zipkin with CassandraStorage
 Zipkin URL
 ============
 
-        http://localhost:9411/zipkin/
 
-        http://localhost:9411/health
+http://localhost:9411/zipkin/
 
-        http://localhost:9411/actuator/info
+http://localhost:9411/health
 
-        http://localhost:9411/metrics
+http://localhost:9411/actuator/info
 
-        http://localhost:9411/actuator/prometheus
+http://localhost:9411/metrics
+
+http://localhost:9411/actuator/prometheus
