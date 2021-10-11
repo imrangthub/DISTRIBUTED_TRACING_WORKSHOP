@@ -1,8 +1,6 @@
-# DISTRIBUTED_TRACING_WORKSHOP
 
-
-
-#Setup MySQL Database
+#Zipkin with MySQL Database
+==========================================================================================
 
         ALTER USER 'root'@'localhost'   IDENTIFIED WITH mysql_native_password   BY 'root';
 
@@ -11,7 +9,7 @@
         java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=mysql --zipkin.storage.mysql.host=localhost --zipkin.storage.mysql.port=3306 --   zipkin.storage.mysql.username=root --zipkin.storage.mysql.password=root --zipkin.storage.mysql.db=zipkin_service_mysql
 
 
-Zipkin Required Table SQL Script:
+#Zipkin Required Table SQL Script:
 
         CREATE TABLE IF NOT EXISTS zipkin_spans (
           `trace_id_high` BIGINT NOT NULL DEFAULT 0 COMMENT 'If non zero, this
