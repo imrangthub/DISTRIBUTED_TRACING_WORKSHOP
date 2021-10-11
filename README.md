@@ -91,15 +91,19 @@ Zipkin with MySQL Database
 
 Zipkin with CassandraStorage
 ==========================================================================================
-    java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=cassandra3
+       java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=cassandra3
 
 
-http://localhost:9411/zipkin/
 
-http://localhost:9411/health
+Zipkin URL
+============
 
-http://localhost:9411/actuator/info
+        http://localhost:9411/zipkin/
 
-http://localhost:9411/metrics
+        http://localhost:9411/health
 
-http://localhost:9411/actuator/prometheus
+        http://localhost:9411/actuator/info
+
+        http://localhost:9411/metrics
+
+        http://localhost:9411/actuator/prometheus
