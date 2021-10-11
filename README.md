@@ -3,15 +3,15 @@
 
 
 #Setup MySQL Database
-======================================================================================
 
         ALTER USER 'root'@'localhost'   IDENTIFIED WITH mysql_native_password   BY 'root';
 
 #Run Jar with Env
 
-        java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=mysql --zipkin.storage.mysql.host=localhost --zipkin.storage.mysql.port=3306 --zipkin.storage.mysql.username=root --zipkin.storage.mysql.password=root --zipkin.storage.mysql.db=zipkin_service_mysql
+        java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=mysql --zipkin.storage.mysql.host=localhost --zipkin.storage.mysql.port=3306 --   zipkin.storage.mysql.username=root --zipkin.storage.mysql.password=root --zipkin.storage.mysql.db=zipkin_service_mysql
 
-Zipkin Table:
+
+Zipkin Required Table SQL Script:
 
         CREATE TABLE IF NOT EXISTS zipkin_spans (
           `trace_id_high` BIGINT NOT NULL DEFAULT 0 COMMENT 'If non zero, this
@@ -37,8 +37,6 @@ Zipkin Table:
         getTraces and getRemoteServiceNames';
         ALTER TABLE zipkin_spans ADD INDEX(`start_ts`) COMMENT 'for getTraces
         ordering and range';
-        
-        
         
         
         CREATE TABLE IF NOT EXISTS zipkin_annotations (
@@ -80,7 +78,6 @@ Zipkin Table:
         getTraces and autocomplete values';
         ALTER TABLE zipkin_annotations ADD INDEX(`trace_id`, `span_id`,
         `a_key`) COMMENT 'for dependencies job';
-        
         
         
       CREATE TABLE IF NOT EXISTS zipkin_dependencies (
