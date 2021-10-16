@@ -140,6 +140,28 @@ MySQL:
 Zipkin with CassandraStorage
 ==========================================================================================
        java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=cassandra3
+       
+       
+        =>cqlsh
+        =>describe keyspaces;
+        =>use zipkin2;
+        =>describe tables;
+
+Table List:
+
+         dependency  
+         trace_by_service_span  
+         span  
+         autocomplete_tags  
+         span_by_service
+         
+         =>select * from trace_by_service_span;
+         =>select * from span;
+         =>select * from autocomplete_tags;
+         =>select * from span_by_service;
+ 
+
+
 
 
 
