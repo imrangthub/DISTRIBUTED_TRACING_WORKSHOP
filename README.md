@@ -89,6 +89,54 @@ Zipkin with MySQL Database
       utf8_general_ci;
 
 
+#application.yml/application.properties
+
+Cassandra:
+
+                server:
+                  port: 9411
+
+                spring:
+                  application:
+                    name: zipkin-server
+                  datasource:
+                    schema: classpath:/cassandra3-schema.cql
+                    url: jdbc:cassandra://127.0.0.1:9042
+                    keyspace: zipkin3
+                    contactPoints: localhost
+                    initialize: true
+                    continue-on-error: true
+                  sleuth:
+                    enabled: false
+
+                zipkin:
+                  storage:
+                      type: cassandra3
+                      
+                      server:
+                      
+MySQL:
+
+                  port: 9411
+
+                spring:
+                  application:
+                    name: zipkin-server
+                  datasource:
+                    schema: classpath:/mysql.sql
+                    url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true&useSSL=false
+                    username: root
+                    driver-class-name: com.mysql.jdbc.Driver
+                    initialize: true
+                    continue-on-error: true
+                  sleuth:
+                    enabled: false
+
+                zipkin:
+                  storage:
+                      type: mysql
+
+      
 Zipkin with CassandraStorage
 ==========================================================================================
        java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=cassandra3
