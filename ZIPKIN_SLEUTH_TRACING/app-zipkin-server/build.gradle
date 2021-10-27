@@ -27,6 +27,10 @@ dependencies {
     compile('io.zipkin.java:zipkin-autoconfigure-ui')
     compile('io.zipkin.java:zipkin-server')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    runtimeOnly "mysql:mysql-connector-java"
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'io.zipkin.java:zipkin-autoconfigure-storage-mysql'
+
 }
 dependencyManagement {
     imports {

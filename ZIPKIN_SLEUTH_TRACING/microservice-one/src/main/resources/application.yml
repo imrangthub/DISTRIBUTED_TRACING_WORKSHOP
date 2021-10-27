@@ -3,7 +3,8 @@ server:
 spring:
   application:
     name: microservice-one
-
+  zipkin:
+    base-url: http://localhost:9410/
 eureka:
   instance:
     preferIpAddress: true
