@@ -3,22 +3,15 @@ server:
 
 spring:
   application:
-    name: app-zipkin-service
+    name: app-zipkin-server
   datasource:
-    schema: classpath:/mysql.sql
-    url: jdbc:mysql://localhost:3306/zipkin_service_mysql?autoReconnect=true&useSSL=false
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
-
+    schema: classpath:/cassandra3-schema.cql
+    url: jdbc:cassandra://127.0.0.1:9042
+    contactPoints: localhost
+    initialize: true
+    continue-on-error: true
+  sleuth:
+    enabled: true
 zipkin:
   storage:
-    type: mysql
-    mysql:
-      host: localhost
-      port: 3306
-      username: root
-      password: root
-      db: zipkin_service_mysql
-
-
+    type: cassandra3

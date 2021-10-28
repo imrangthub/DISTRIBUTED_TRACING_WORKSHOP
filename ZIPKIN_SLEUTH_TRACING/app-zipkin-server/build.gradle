@@ -27,10 +27,9 @@ dependencies {
     compile('io.zipkin.java:zipkin-autoconfigure-ui')
     compile('io.zipkin.java:zipkin-server')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    runtimeOnly "mysql:mysql-connector-java"
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    implementation 'io.zipkin.java:zipkin-autoconfigure-storage-mysql'
-
+    implementation 'io.zipkin.java:zipkin-autoconfigure-storage-cassandra3:1.31.3'
+    implementation 'com.datastax.cassandra:cassandra-driver-core:3.11.0'
+    implementation 'com.datastax.cassandra:cassandra-driver-mapping:3.11.0'
 }
 dependencyManagement {
     imports {
