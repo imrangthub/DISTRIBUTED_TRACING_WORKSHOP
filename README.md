@@ -93,48 +93,48 @@ Zipkin with MySQL Database
 
 Cassandra:
 
-                server:
-                  port: 9411
+        server:
+          port: 9410
 
-                spring:
-                  application:
-                    name: zipkin-server
-                  datasource:
-                    schema: classpath:/cassandra3-schema.cql
-                    url: jdbc:cassandra://127.0.0.1:9042
-                    keyspace: zipkin3
-                    contactPoints: localhost
-                    initialize: true
-                    continue-on-error: true
-                  sleuth:
-                    enabled: false
-
-                zipkin:
-                  storage:
-                      type: cassandra3
-                      
-                      server:
+        spring:
+          application:
+            name: app-zipkin-server
+          datasource:
+            schema: classpath:/cassandra3-schema.cql
+            url: jdbc:cassandra://127.0.0.1:9042
+            contactPoints: localhost
+            initialize: true
+            continue-on-error: true
+          sleuth:
+            enabled: true
+        zipkin:
+          storage:
+            type: cassandra3
                       
 MySQL:
 
-                  port: 9411
+        server:
+          port: 9410
 
-                spring:
-                  application:
-                    name: zipkin-server
-                  datasource:
-                    schema: classpath:/mysql.sql
-                    url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true&useSSL=false
-                    username: root
-                    driver-class-name: com.mysql.jdbc.Driver
-                    initialize: true
-                    continue-on-error: true
-                  sleuth:
-                    enabled: false
+        spring:
+          application:
+            name: app-zipkin-service
+          datasource:
+            schema: classpath:/mysql.sql
+            url: jdbc:mysql://localhost:3306/zipkin_service_mysql?autoReconnect=true&useSSL=false
+            username: root
+            password: root
+            driver-class-name: com.mysql.jdbc.Driver
 
-                zipkin:
-                  storage:
-                      type: mysql
+        zipkin:
+          storage:
+            type: mysql
+            mysql:
+              host: localhost
+              port: 3306
+              username: root
+              password: root
+              db: zipkin_service_mysql
 
       
 Zipkin with CassandraStorage
