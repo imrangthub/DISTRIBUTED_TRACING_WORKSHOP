@@ -19,8 +19,9 @@ public class HomeController {
     @RequestMapping("/")
     public String testMsg() {
         System.out.println("MessageFrom Microservice One");
-        return "MessageFrom Microservice One";
+        return "MessageFrom Microservice Root";
     }
+
 
     @RequestMapping("/getMsg")
     public String getList() {
@@ -31,6 +32,12 @@ public class HomeController {
         LOG.info("The response received by Microservice1getMsg: " + requestRes);
         System.out.println("Microservice Two Res: "+requestRes);
         return requestRes;
+    }
+
+    @RequestMapping("/getMsg1")
+    public String getList1() {
+        LOG.info("Inside Microservice1getMsg");
+        return "MessageFrom Microservice One";
     }
 
     @RequestMapping("/getMsg2")

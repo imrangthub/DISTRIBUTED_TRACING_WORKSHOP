@@ -12,4 +12,4 @@ eureka:
     leaseExpirationDurationInSeconds: 2
   client:
     serviceUrl:
-      defaultZone: http://localhost:8181/eureka/
+      defaultZone: http://localhost:7082/eureka/
