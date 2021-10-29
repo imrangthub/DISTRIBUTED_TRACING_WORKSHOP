@@ -89,3 +89,104 @@ Zipkin with MySQL Database
       utf8_general_ci;
 
 
+#application.yml/application.properties
+
+Cassandra:
+
+        server:
+          port: 9410
+        spring:
+          application:
+            name: zipkin-server
+          datasource:
+            schema: classpath:/cassandra3-schema.cql
+            url: jdbc:cassandra://127.0.0.1:9042
+            initialize: true
+            continue-on-error: true
+          cloud:
+            config:
+              uri: http://localhost:7085
+        management:
+          endpoints:
+            web:
+              exposure:
+                include: "*"
+        zipkin:
+          storage:
+            type: cassandra3
+            cassandra3:
+              ensure-schema: true
+              contact-points: localhost
+              keyspace: zipkin_server_kespc
+              username: cassandra
+              password: cassandra
+
+
+                      
+MySQL:
+
+        server:
+          port: 9410
+
+        spring:
+          application:
+            name: app-zipkin-service
+          datasource:
+            schema: classpath:/mysql.sql
+            url: jdbc:mysql://localhost:3306/zipkin_service_mysql?autoReconnect=true&useSSL=false
+            username: root
+            password: root
+            driver-class-name: com.mysql.jdbc.Driver
+
+        zipkin:
+          storage:
+            type: mysql
+            mysql:
+              host: localhost
+              port: 3306
+              username: root
+              password: root
+              db: zipkin_service_mysql
+
+      
+Zipkin with CassandraStorage
+==========================================================================================
+       java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=cassandra3
+       
+       
+        =>cqlsh
+        =>describe keyspaces;
+        =>use zipkin2;
+        =>describe tables;
+
+Table List:
+
+         dependency  
+         trace_by_service_span  
+         span  
+         autocomplete_tags  
+         span_by_service
+         
+         =>select * from trace_by_service_span;
+         =>select * from span;
+         =>select * from autocomplete_tags;
+         =>select * from span_by_service;
+ 
+
+
+
+
+
+Zipkin URL
+============
+
+
+http://localhost:9411/zipkin/
+
+http://localhost:9411/health
+
+http://localhost:9411/actuator/info
+
+http://localhost:9411/metrics
+
+http://localhost:9411/actuator/prometheus
