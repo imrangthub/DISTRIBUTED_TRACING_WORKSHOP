@@ -181,12 +181,34 @@ Zipkin URL
 ============
 
 
-http://localhost:9411/zipkin/
+http://localhost:9410/zipkin/
 
-http://localhost:9411/health
+http://localhost:9410/health
 
-http://localhost:9411/actuator/info
+http://localhost:9410/actuator/info
 
-http://localhost:9411/metrics
+http://localhost:9410/metrics
 
-http://localhost:9411/actuator/prometheus
+http://localhost:9410/actuator/prometheus
+
+
+Service config:
+-------------------------
+
+        spring:
+          application:
+            name: 'active-listener'
+          profiles: 'dev'
+          sleuth:
+            async:
+              enabled: false
+            annotation:
+              enabled: true
+          enabled: true
+          sampler:
+            probability: 1.0
+          zipkin:
+            baseUrl: http://localhost:9411
+            enabled: true
+            sender:
+              type: web*
