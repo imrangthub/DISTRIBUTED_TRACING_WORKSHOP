@@ -4,7 +4,10 @@ spring:
   application:
     name: microservice-one
   zipkin:
-    base-url: http://localhost:9410/
+    baseUrl: http://localhost:9410
+    enabled: true
+    sender:
+      type: web
 eureka:
   instance:
     preferIpAddress: true
