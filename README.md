@@ -155,6 +155,7 @@ Zipkin with CassandraStorage
        
        
         =>cqlsh
+        =>cqlsh localhost -u cassandra -p cassandra
         =>describe keyspaces;
         =>use zipkin2;
         =>describe tables;
