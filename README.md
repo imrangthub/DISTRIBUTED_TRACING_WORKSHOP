@@ -7,6 +7,8 @@ Zipkin with MySQL Database
 #Run Jar with Env
 
         java -jar zipkin-server-2.12.9-exec.jar --zipkin.storage.type=mysql --zipkin.storage.mysql.host=localhost --zipkin.storage.mysql.port=3306 --   zipkin.storage.mysql.username=root --zipkin.storage.mysql.password=root --zipkin.storage.mysql.db=zipkin_service_mysql
+        
+        java -jar zipkin-server-2.12.9-exec.jar --server.port=9410 --zipkin.storage.type=cassandra3 --zipkin.storage.cassandra3.ensure-schema=true --zipkin.storage.cassandra3.contact-points=127.0.0.1:9042 --zipkin.storage.cassandra3.username=imran --zipkin.storage.cassandra3.password=123456 --zipkin.storage.cassandra3.keyspace=dev_kespc
 
 
 #Zipkin Required Table SQL Script:
