@@ -215,3 +215,35 @@ Service config:
             enabled: true
             sender:
               type: web*
+              
+              
+			
+			
+			 
+Kafka		
+===================================================
+
+                => cd C:\Z_MY_COMPUTER\Software\kafka
+
+
+                Change dir for log
+                
+                C:\Z_MY_COMPUTER\Software\kafka\data\zookeeper
+
+
+
+                =>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+                
+                =>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+
+                Create a topic with name imranmadbar-topic, that has only one partition & one replica.
+                
+                =>.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:2181 --replication-factor 1 --partitions 1 --topic imranmadbartopic
+
+
+
+			   
+			   
+
